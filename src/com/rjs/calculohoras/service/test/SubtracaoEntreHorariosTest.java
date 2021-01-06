@@ -265,5 +265,4 @@ class SubtracaoEntreHorariosTest {
 	private void testeExtra(JTable table2, JTable table1) throws ParseException {
 		tableResultado = subtracaoEntreHorarios.execute(table2, table1);
 	}
-
 }

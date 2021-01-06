@@ -11,7 +11,7 @@ import com.rjs.calculohoras.model.EntradaSaida;
 import com.rjs.calculohoras.model.HorarioResultado;
 import com.rjs.calculohoras.model.tablemodel.impl.HorarioResultadoTableModel;
 
-public class SubtracaoEntreHorarios {
+public class SubtracaoEntreHorarios222 {
 
 	public JTable execute(JTable tabela1, JTable tabela2) throws ParseException {
 		EntradaSaida entradaSaida = new EntradaSaida();
@@ -19,15 +19,11 @@ public class SubtracaoEntreHorarios {
 		HorarioResultadoTableModel horarioResultadoTableModel = new HorarioResultadoTableModel(
 				new ArrayList<HorarioResultado>());
 
-		Boolean registrado;
-
 		for (Integer indiceLinhaTabela1 = 0; indiceLinhaTabela1 < tabela1.getModel()
 				.getRowCount(); indiceLinhaTabela1++) {
 
 			entradaSaida.setEntrada1(getEntrada(tabela1, indiceLinhaTabela1));
 			entradaSaida.setSaida1(getSaida(tabela1, indiceLinhaTabela1));
-
-			registrado = false;
 
 			for (Integer indiceLinhaTabela2 = 0; indiceLinhaTabela2 < tabela2.getModel()
 					.getRowCount(); indiceLinhaTabela2++) {
@@ -39,18 +35,11 @@ public class SubtracaoEntreHorarios {
 
 				if (estaEntre(entradaSaida.getEntrada2(), entradaSaida.getEntrada1(), entradaSaida.getSaida1())) {
 					registraEntrada(tabela1, entradaSaida, horarioResultadoTableModel);
-					registrado = true;
-
 				}
 
 				if (estaEntre(entradaSaida.getSaida2(), entradaSaida.getEntrada1(), entradaSaida.getSaida1())) {
 					registraSaida(tabela1, tabela2, entradaSaida, horarioResultadoTableModel, indiceLinhaTabela2);
-					registrado = true;
 				}
-			}
-
-			if (!registrado) {
-				registra(tabela1, indiceLinhaTabela1, horarioResultadoTableModel);
 			}
 
 		}
@@ -58,18 +47,6 @@ public class SubtracaoEntreHorarios {
 		JTable resultado = new JTable();
 		resultado.setModel(horarioResultadoTableModel);
 		return resultado;
-	}
-
-	private void registra(JTable tabela, Integer indiceLinhaTabela,
-			HorarioResultadoTableModel horarioResultadoTableModel) throws ParseException {
-		horarioResultadoTableModel
-				.add(new HorarioResultado(getEntrada(tabela, indiceLinhaTabela), getSaida(tabela, indiceLinhaTabela)));
-		imprimeResultado(horarioResultadoTableModel);
-	}
-
-	private void imprimeResultado(HorarioResultadoTableModel horarioResultadoTableModel) {
-		System.out.println(horarioResultadoTableModel.getValueAt(horarioResultadoTableModel.getRowCount() - 1, 0)
-				+ " - " + horarioResultadoTableModel.getValueAt(horarioResultadoTableModel.getRowCount() - 1, 1));
 	}
 
 	private Long getSaida(JTable tabela, Integer linha) throws ParseException {
@@ -97,7 +74,6 @@ public class SubtracaoEntreHorarios {
 			horarioResultadoTableModel
 					.add(new HorarioResultado(entradaSaida.getSaida2Old(), entradaSaida.getSaida1Old()));
 		}
-		imprimeResultado(horarioResultadoTableModel);
 	}
 
 	private void registraEntrada(JTable tabela1, EntradaSaida entradaSaida,
@@ -117,7 +93,6 @@ public class SubtracaoEntreHorarios {
 			horarioResultadoTableModel
 					.add(new HorarioResultado(entradaSaida.getEntrada1Old(), entradaSaida.getEntrada2Old()));
 		}
-		imprimeResultado(horarioResultadoTableModel);
 	}
 
 	private boolean existeSoUmLancamento(JTable tabela) {

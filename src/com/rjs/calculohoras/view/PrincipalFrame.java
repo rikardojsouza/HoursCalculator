@@ -89,7 +89,7 @@ public class PrincipalFrame extends JFrame {
 	}
 
 	private void addFoot() {
-		JLabel foot = new JLabel("2021.a.01.0001");
+		JLabel foot = new JLabel("2021.a.01.0002");
 		foot.setHorizontalAlignment(JLabel.RIGHT);
 		contentPane.add(foot, BorderLayout.AFTER_LAST_LINE);
 	}

@@ -91,10 +91,12 @@ public class EntradaSaida {
 
 	@Override
 	public String toString() {
-		return "EntradaSaida [entrada1=" + converteHora(entrada1) + ", saida1=" + converteHora(saida1) + ", entrada2="
-				+ converteHora(entrada2) + ", saida2=" + converteHora(saida2) + ", entrada1Old="
-				+ converteHora(entrada1Old) + ", saida1Old=" + converteHora(saida1Old) + ", entrada2Old="
-				+ converteHora(entrada2Old) + ", saida2Old=" + converteHora(saida2Old) + "]";
+		return "EntradaSaida ["  
+	            + "  entrada1=" + converteHora(entrada1) + ", saida1=" + converteHora(saida1) 
+	            + ", entrada2="	+ converteHora(entrada2) + ", saida2=" + converteHora(saida2) 
+	            + ", entrada1Old=" + converteHora(entrada1Old) + ", saida1Old=" + converteHora(saida1Old) 
+	            + ", entrada2Old=" + converteHora(entrada2Old) + ", saida2Old=" + converteHora(saida2Old) 
+	            + "]";
 	}
 
 	private static String converteHora(Long valor) {
